@@ -71,14 +71,12 @@ def train_model(data_path: str, models_dir: str) -> None:
 
 
 if __name__ == "__main__":
-    # Get the directory where THIS script (train.py) lives
-    # This is C:\Users\Ella\PycharmProjects\PythonProject1
+    # Get the directory where train.py is located
     current_dir = os.path.dirname(os.path.abspath(__file__))
 
-    # The CSV is in the same folder as this script
+    # Files are in the same project folder
     data_file = os.path.join(current_dir, "Work Productivity.csv")
-
-    # Define the models folder inside the current directory
     models_folder = os.path.join(current_dir, "models")
 
+    print(f"Checking for data at: {data_file}")
     train_model(data_file, models_folder)
