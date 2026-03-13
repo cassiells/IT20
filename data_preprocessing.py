@@ -115,12 +115,18 @@ def load_and_preprocess_data(
         return X_df
 
 
-def save_preprocessors(encoders: Dict[str, LabelEncoder], scaler: StandardScaler, path: str) -> None:
+# Updated version
+def save_preprocessors(encoders, scaler, path):
+    # Ensure the directory exists first
     if not os.path.exists(path):
         os.makedirs(path)
-    joblib.dump(encoders, os.path.join(path, 'encoders.joblib'))
-    joblib.dump(scaler, os.path.join(path, 'models/scaler.joblib'))
 
+    # Save directly into the path provided (which is already the 'models' folder)
+    joblib.dump(scaler, os.path.join(path, 'scaler.joblib'))
+
+    # Do the same for your encoders
+    for col, le in encoders.items():
+        joblib.dump(le, os.path.join(path, f'encoder_{col}.joblib'))
 
 def load_preprocessors(path: str) -> Tuple[Dict[str, LabelEncoder], StandardScaler]:
     encoders = joblib.load(os.path.join(path, 'encoders.joblib'))
