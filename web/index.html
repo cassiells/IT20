@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burnout Risk Prediction</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+    </div>
+
+    <main class="glass-container">
+        <header>
+            <h1>Burnout Risk <span class="accent">Prediction</span></h1>
+            <p>Advanced predictive analytics for employee well-being.</p>
+        </header>
+
+        <section class="form-grid">
+            <div class="input-card">
+                <h3>Personal Context</h3>
+                <div class="input-group">
+                    <label>Age</label>
+                    <input type="number" id="age" value="45">
+                </div>
+                <div class="input-group">
+                    <label>Gender</label>
+                    <select id="gender">
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Experience (Years)</label>
+                    <input type="number" id="experience_years" value="20">
+                </div>
+            </div>
+
+            <div class="input-card">
+                <h3>Work Environment</h3>
+                <div class="input-group">
+                    <label>Job Role</label>
+                    <select id="job_role">
+                        <option>Software Developer</option>
+                        <option>Software Engineer</option>
+                        <option>Data Analyst</option>
+                        <option>Data Scientist</option>
+                        <option>Designer</option>
+                        <option>HR</option>
+                        <option>Manager</option>
+                        <option>Marketing</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Work Setting</label>
+                    <select id="work_environment">
+                        <option>Home</option>
+                        <option>Office</option>
+                        <option>Hybrid</option>
+                        <option>Coworking</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Stress Level</label>
+                    <select id="stress_level">
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option selected>High</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-card">
+                <h3>Daily Metrics</h3>
+                <div class="input-group">
+                    <label>Work Hours / Day</label>
+                    <input type="range" id="work_hours" min="1" max="16" value="14" step="0.5">
+                    <span class="value-display" id="work_hours_val">14h</span>
+                </div>
+                <div class="input-group">
+                    <label>Sleep Hours</label>
+                    <input type="range" id="sleep_hours" min="1" max="12" value="4" step="0.5">
+                    <span class="value-display" id="sleep_hours_val">4h</span>
+                </div>
+                <div class="input-group">
+                    <label>Meetings / Day</label>
+                    <input type="number" id="meetings_per_day" value="10">
+                </div>
+            </div>
+
+            <div class="input-card">
+                <h3>Wellness & Performance</h3>
+                <div class="input-group">
+                    <label>Country</label>
+                    <select id="country">
+                        <option>USA</option>
+                        <option>India</option>
+                        <option>UK</option>
+                        <option>Canada</option>
+                        <option>Germany</option>
+                        <option>Australia</option>
+                        <option>Japan</option>
+                        <option>South Korea</option>
+                        <option>China</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Company Size</label>
+                    <select id="company_size">
+                        <option>Small</option>
+                        <option>Medium</option>
+                        <option>Large</option>
+                        <option>MNC</option>
+                    </select>
+                </div>
+                <div class="input-group-row">
+                    <div class="input-group mini">
+                        <label>Exercise (h/wk)</label>
+                        <input type="number" id="exercise_hours" value="0">
+                    </div>
+                    <div class="input-group mini">
+                        <label>Internet (Mbps)</label>
+                        <input type="number" id="internet_speed" value="50">
+                    </div>
+                </div>
+                <div class="input-group-row">
+                    <div class="input-group mini">
+                        <label>Screen Time (h)</label>
+                        <input type="number" id="screen_time" value="16">
+                    </div>
+                    <div class="input-group mini">
+                        <label>Prod. Score (30-100)</label>
+                        <input type="number" id="productivity_score" min="30" max="100" value="85">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="action-container">
+            <button id="predict-btn" class="glow-button">Analyze Risk Profile</button>
+        </div>
+
+        <section id="result-section" class="result-card hidden">
+            <div id="prediction-content" class="prediction-content">
+                <div class="status-badge" id="status-badge">CLEAR</div>
+                <h2 id="prediction-text">No Significant Burnout</h2>
+                <div class="meter-container">
+                    <p>Confidence Level</p>
+                    <div class="meter"><span id="confidence-bar"></span></div>
+                    <span id="confidence-text">0%</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
